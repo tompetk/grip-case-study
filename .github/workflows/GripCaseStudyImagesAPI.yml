@@ -8,7 +8,7 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: Grip.CaseStudy.Images.API\publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
-  WORKING_DIRECTORY: Grip.CaseStudy.Images.API
+  WORKING_DIRECTORY: src/Grip.CaseStudy.Images.API
 jobs:
   build:
     runs-on: windows-latest
