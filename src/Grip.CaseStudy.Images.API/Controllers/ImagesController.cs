@@ -26,9 +26,8 @@ namespace Grip.CaseStudy.Images.API.Controllers
         /// <summary>
         /// Uploads image. JPEG image type allowed only (for simplicity).
         /// </summary>
-        /// <returns>Image ID of the uploaded image.</returns>
         [HttpPost()]
-        [RequestSizeLimit(1_000_000)]
+        [RequestSizeLimit(2_000_000)]
         public async Task<ActionResult<UploadImageResponseDTO>> UploadImage(
             [FromForm] UploadImageRequestDTO uploadFileRequestDTO,
             CancellationToken cancellationToken)
@@ -49,11 +48,8 @@ namespace Grip.CaseStudy.Images.API.Controllers
         }
 
         /// <summary>
-        /// Returns uploaded image scaled to the given height.
+        /// Returns uploaded image scaled to the given height as JPEG content type.
         /// </summary>
-        /// <param name="imageId">Image ID returned by the upload endpoint.</param>
-        /// <param name="height">Height image should be scaled to (0 < height <= 4096).</param>
-        /// <returns>JPEG image response with the according content type.</returns>
         [HttpGet("{imageId}")]
         public async Task<ActionResult> GetImage(
             [FromRoute] string imageId,
